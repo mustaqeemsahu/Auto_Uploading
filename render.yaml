@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: mahiru-auto-anime-uploader
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: USER_SESSION
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB
+        value: mahiru_auto_uploader
+      - key: SOURCE_CHANNELS
+        sync: false
+      - key: DESTINATION_CHANNEL
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: RENAME_BOT
+        value: "@AdvFileRenameBot"
+      - key: FILE_STORE_BOT
+        value: "@Naruto_AnimeRobot"
+      - key: MAIN_CHANNEL_TEXT
+        sync: false
+      - key: MAX_QUALITY_JOBS
+        value: "8"
+      - key: BOT_TIMEOUT
+        value: "240"
+      - key: JOIN_CHANNELS_AUTOMATICALLY
+        value: "false"
